@@ -8,7 +8,7 @@ const HomeSearch = () => {
     //2.) add state to our Home. create a variable named title initialized by the hook useState. NOTE THIS WILL ACTUALLY BE AN IMDBID
     const [ searchTitle, setSearchTitle] = useState('')
     //9.) **NOW NOT IN USE add variable to handle the response data and display. i am hard coding this into the component for now just to get and idea of how to access the values, then i will map onto a component card to display
-    const  [foundTitle, setFoundTitle] = useState('') //10.) the title of the movie found
+    const  [foundTitle, setFoundTitle] = useState('') //10.) the movie object found
     const API = '5b053eb2'
     //3.) create a handler that will respond to change events when the text field is typed in. add onChange to the input
     const handleChange = (event) => {
