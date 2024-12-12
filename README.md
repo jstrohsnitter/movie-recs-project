@@ -67,3 +67,6 @@ Tuesday
 
 Wednesday --SUBMIT
 -Rehearsal 
+
+
+found the card style in https://codepen.io/jepooley/pen/NWYryap

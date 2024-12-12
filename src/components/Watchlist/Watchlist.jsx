@@ -1,17 +1,14 @@
 import React from "react";
+import MovieCard from "../MovieCard/MovieCard";
 
 const Watchlist = ({ movies }) => {
   return ( 
     <>
       <h1>Watchlist</h1>
       <ul>
-        {movies.map((movie, index) => (
-          <li key={index}>
-            <h2>{movie.title}</h2>
-            <p>Actors: {movie.actors.join(", ")}</p>
-            <p>Year: {movie.year}</p>
-            <p>Rating: {movie.rating}</p>
-            <p>Watched: {movie.watched ? "Yes" : "No"}</p>
+        {movies.map((movie, index) => ( // Iterate over the movies array
+          <li key={index}> {/* Provide a unique key for each list item */}
+            <MovieCard movie={movie} /> {/* Pass each movie object to the MovieCard component */}
           </li>
         ))}
       </ul>
