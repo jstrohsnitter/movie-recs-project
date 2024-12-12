@@ -43,7 +43,11 @@ Running To-Do
 - movie card component -- priority for for finishing the watchlist and home(search)
 - deploy to AWS
 - service module
-- 
+- Nav Bar
+- card component in HomeSearch
+- add found movie to our API
+- landing page with instructions on how to use app?
+- fetch function in services?
 
 
 Wednesday
