@@ -36,18 +36,27 @@ React Skeleton
 2. Search Bar Component
 3. Nav Bar with two options -- Home Page/Watchlist 
 4. Search Result List
-5. Watchlist - Hearder that says watchlist, items of data listed out in cards 
+5. Watchlist - Hearder that says watchlist, items of data listed out in cards
+6. Movie card component, search result card will have a button that sends data from the api call to the data base 
 
+Running To-Do
+- movie card component -- priority for for finishing the watchlist and home(search)
+- deploy to AWS
+- service module
+- 
 
 
 Wednesday
--Abdullah -- MVC set up, communication w database, schema set up
+-Abdullah -- MVC set up, communication w database, schema set up (Complete 12/12)
 -Miles -- form to communicate with our database and API
 
 Thursday
-* Database with Schema built by 0900
-* Watchlist Component -- Hearder that says watchlist, items of data listed out in cards by 0900
-* Home Componenet -- calls to api -- search bar component, if i can -> render search results by 0900
+* Database with Schema built by 0900 (Completed 12/12)
+
+* Watchlist Component -- Hearder that says watchlist, items of data listed out in cards by 0900 ** will update when card component is integrated ONGOING
+
+
+* Home Componenet -- calls to api -- search bar component, if i can -> render search results by 0900 ONGOING
 
 Thursday Day Work
 * Search results rendered -> search results added to watchlist 
