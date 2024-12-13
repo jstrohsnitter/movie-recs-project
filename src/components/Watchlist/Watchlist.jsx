@@ -2,6 +2,7 @@ import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 
 const Watchlist = ({ movies }) => {
+  console.log(movies)
   return ( 
     <>
       <h1>Watchlist</h1>
