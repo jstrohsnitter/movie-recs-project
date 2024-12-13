@@ -1,10 +1,10 @@
-import MovieCard from "./MovieCard/MovieCard"
+import MovieCard from "../MovieCard/MovieCard"
 import axios from 'axios'
 
 
 
 
-const HomeSearchList = (props) => {
+const SearchList = (props) => {
 
     const movie = props.foundTitle
 
@@ -57,4 +57,4 @@ const HomeSearchList = (props) => {
     )
 }
 
-export default HomeSearchList
+export default SearchList
