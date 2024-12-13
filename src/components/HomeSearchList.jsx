@@ -19,10 +19,10 @@ const HomeSearchList = (props) => {
             "released": `${movie.Released}`,
             "genre": `${movie.Genre}`,
             "poster": `${movie.Poster}`,
-            "watched": "false",
             "director": `${movie.Director}`,
             "actors": `${movie.Actors}`,
             "awards": `${movie.Awards}`,
+            "watched": "false",
             });
 
             let config = {

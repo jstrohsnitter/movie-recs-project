@@ -46,8 +46,13 @@ Running To-Do
 - Nav Bar
 - card component in HomeSearch
 - add found movie to our API
-- landing page with instructions on how to use app?
+- landing page with instructions on how to use app? ** on home page
+- search page 
 - fetch function in services?
+- watched checkbox in watchlist
+- delete button in watchlist
+- change additional info in database 
+- change shcema *additional info*
 
 
 Wednesday
@@ -68,6 +73,7 @@ Thursday Day Work
 
 Friday
 -Deploy to AWS
+-Justin - make home page, update nav bar 
 Saturday & Sunday
 
 Monday
