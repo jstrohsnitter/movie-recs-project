@@ -3,6 +3,7 @@ import "./NavBar.css";
 
 const navBarOptions = [
   { page: 'Home', content: 'Home' },
+  { page: 'Search', content: 'Search'},
   { page: 'Watchlist', content: 'Watchlist' },
 ];
 
