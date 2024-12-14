@@ -88,4 +88,13 @@ Wednesday --SUBMIT
 -Rehearsal 
 
 
+reference: 
+
 found the card style in https://codepen.io/jepooley/pen/NWYryap
+
+rendering PUT, POST, DELETE method in JS through React
+https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+
+variations of HTTP method functuonal calls:
+
+https://stackoverflow.com/questions/40284338/javascript-fetch-delete-and-put-requests
