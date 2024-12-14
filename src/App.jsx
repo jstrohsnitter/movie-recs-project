@@ -13,22 +13,41 @@ const App = () => {
     setNavBarState(theChosenPage);
   };
 
-  const deleteFromWatchList = async (movieId) => {
+  // Refactored fetchMovies to be a standalone function
+  const fetchMovies = async () => {
     try {
-      const response = await fetch(API_BASE_URL + '/' + movieId, {
-        method: 'delete'
-      });
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`) // <3 - Checks for HTTP response status before attempting to parse it as JSON.
-      }
+      const response = await fetch(API_BASE_URL);
       const data = await response.json();
-      return data;    
+      setMovies(data);
+      console.log(data);
     } catch (error) {
-      console.error('deleteFromWatchList returning error: ', error) //Console 'logs' or 'records' information
-      return {error: error.message} //An actionable step due to an error to control the flow of program / resolve errors or other condiitons that affect program execution.
+      console.error('Error fetching movies:', error);
     }
+  };
+
+  useEffect(() => {
+    fetchMovies();
+  }, []);
+
+
+const deleteFromWatchList = async (movieId) => {
+  try {
+    const response = await fetch(API_BASE_URL + '/' + movieId, {
+      method: 'delete'
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`) // <3 - Checks for HTTP response status before attempting to parse it as JSON.
+    }
+    await response.json(); 
+    
+    fetchMovies()
+
+  } catch (error) {
+    console.error('deleteFromWatchList returning error: ', error) //Console 'logs' or 'records' information
+    return {error: error.message} //An actionable step due to an error to control the flow of program / resolve errors or other condiitons that affect program execution.
   }
-  // console.log(deleteFromWatchList)
+}
+// console.log(deleteFromWatchList)
 
 
   const renderPage = () => {
@@ -41,22 +60,6 @@ const App = () => {
         return <HomeSearch />;
     }
   };
-
-
-  useEffect(() => {
-    const fetchMovies = async () => {
-      try {
-        const response = await fetch('http://3.90.140.106:3001/movies');
-        const data = await response.json();
-        setMovies(data);
-        console.log(data)
-      } catch (error) {
-        console.error('Error fetching movies:', error);
-      }
-    };
-
-    fetchMovies();
-  }, []);
 
   return (
     <>

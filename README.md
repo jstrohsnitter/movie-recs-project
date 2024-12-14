@@ -98,3 +98,6 @@ https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
 variations of HTTP method functuonal calls:
 
 https://stackoverflow.com/questions/40284338/javascript-fetch-delete-and-put-requests
+
+how to handle component refresh on post request:
+https://forum.freecodecamp.org/t/react-correct-way-to-handle-a-component-refresh-on-post-request/502426
