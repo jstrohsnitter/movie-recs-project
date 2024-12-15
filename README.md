@@ -101,3 +101,9 @@ https://stackoverflow.com/questions/40284338/javascript-fetch-delete-and-put-req
 
 how to handle component refresh on post request:
 https://forum.freecodecamp.org/t/react-correct-way-to-handle-a-component-refresh-on-post-request/502426
+
+understanding headers:
+https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
+
+handling fetch PUT requests:
+https://jasonwatmore.com/post/2020/11/02/react-fetch-http-put-request-examples
