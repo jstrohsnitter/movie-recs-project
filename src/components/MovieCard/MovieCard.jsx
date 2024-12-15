@@ -16,8 +16,17 @@ const MovieCard = (props) => {
             <li>{props.movie.Genre}</li>
             <li>{props.movie.Runtime}</li>
             <li>{props.movie._id}</li>
+            <li>
+            <input className="input-watched-checkbox" 
+            type="checkbox" 
+            checked={props.movie.watched}
+            onChange={() => props.handleCheckboxWatched(props.movie._id, !props.movie.watched )}
+            id="item1"
+            />
+            <label htmlFor="item1">{props.movie.watched} ? 'watched' : 'unseen' </label>
+            </li>
           </ul>
-        <button onClick={() => props.deleteFromWatchList(props.movie._id)}>Delete</button>
+        <button className="delete-button" onClick={() => props.deleteFromWatchList(props.movie._id)}>Delete</button>
       </div>
     </main>
   );

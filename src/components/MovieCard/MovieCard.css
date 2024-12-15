@@ -75,17 +75,23 @@ main {
     transition: opacity .3s ease-in;
     opacity: 0.2;
   }
-
-  button {
-    z-index: 10;
-    position:relative;
-    cursor: pointer;
-  }
-
 }
+
+.delete-button {
+  z-index: 10;
+  position:relative;
+  cursor: pointer;
+}
+
+.input-watched-checkbox {
+  z-index: 10;
+  position:relative;
+  cursor: pointer;
+}
+
 
 .material-symbols-outlined {
   vertical-align: middle;
 }
 
-bu
+

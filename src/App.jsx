@@ -39,9 +39,7 @@ const deleteFromWatchList = async (movieId) => {
       throw new Error(`HTTP error! status: ${response.status}`) // <3 - Checks for HTTP response status before attempting to parse it as JSON.
     }
     await response.json(); 
-    
     fetchMovies()
-
   } catch (error) {
     console.error('deleteFromWatchList returning error: ', error) //Console 'logs' or 'records' information
     return {error: error.message} //An actionable step due to an error to control the flow of program / resolve errors or other condiitons that affect program execution.
@@ -49,24 +47,34 @@ const deleteFromWatchList = async (movieId) => {
 }
 // console.log(deleteFromWatchList)
 
+// const handleCheckboxWatched = async (movieId, watchedStatus) => {
+//   try {
+//     const response = await fetch(API_BASE_URL + '/' + movieId, {
+//       method: 'put',
+//       body: {movieId} ? 'false' : 'true'
+//     });
+//   }
+// }
 
-  const renderPage = () => {
-    switch (navBarState) {
-      case 'Home':
-        return <HomeSearch />;
-      case 'Watchlist':
-        return <Watchlist movies={movies} deleteFromWatchList={deleteFromWatchList}/>;
-      default:
-        return <HomeSearch />;
-    }
-  };
 
-  return (
-    <>
-      <NavBar handleNavBar={handleNavBar} />
-      {renderPage()}
-    </>
-  );
+
+const renderPage = () => {
+  switch (navBarState) {
+    case 'Home':
+      return <HomeSearch />;
+    case 'Watchlist':
+      return <Watchlist movies={movies} deleteFromWatchList={deleteFromWatchList}/>;
+    default:
+      return <HomeSearch />;
+  }
+};
+
+return (
+  <>
+    <NavBar handleNavBar={handleNavBar} />
+    {renderPage()}
+  </>
+);
 };
 
 export default App;
