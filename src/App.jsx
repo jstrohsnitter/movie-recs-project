@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import HomeSearch from '/src/components/HomeSearch.jsx';
+import Search from '/src/components/Search/Search.jsx';
 import Watchlist from './components/Watchlist/Watchlist';
 import NavBar from './components/NavBar/NavBar';
 import * as movieService from './services/movieService'
+import HomePage from './components/HomePage/HomePage';
+
 
 const App = () => {
   const [NavBarState, setNavBarState] = useState('Home');
@@ -15,12 +17,12 @@ const App = () => {
 
   const renderPage = () => {
     switch (NavBarState) {
-      case 'Home':
-        return <HomeSearch />;
+      case 'Search':
+        return <Search />;
       case 'Watchlist':
         return <Watchlist movies={movies} />;
       default:
-        return <HomeSearch />;
+        return <HomePage />;
     }
   };
 
