@@ -2,7 +2,8 @@ import React from "react";
 import "./MovieCard.css";
 
 const MovieCard = (props) => {
-  console.log("MovieCard.jsx: " + props.deleteFromWatchList)
+  // console.log("MovieCard.jsx: " + props.deleteFromWatchList)
+  // console.log("MovieCard.jsx: " + props.handleCheckboxWatched)
   return (
       <main className="card">
         <img src={props.movie.Poster} alt="movie poster" />
@@ -23,7 +24,7 @@ const MovieCard = (props) => {
             onChange={() => props.handleCheckboxWatched(props.movie._id, !props.movie.watched )}
             id="item1"
             />
-            <label htmlFor="item1">{props.movie.watched} ? 'watched' : 'unseen' </label>
+            <label htmlFor="item1">{props.movie.watched ? 'watched' : 'unseen' }</label>
             </li>
           </ul>
         <button className="delete-button" onClick={() => props.deleteFromWatchList(props.movie._id)}>Delete</button>

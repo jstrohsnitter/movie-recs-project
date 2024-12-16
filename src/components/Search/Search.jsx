@@ -52,9 +52,8 @@ const Search = () => {
         <input type="submit" value="Get my moive"/>
     </form> */}
   
-
     </>
-    )
+)
 
 }
 

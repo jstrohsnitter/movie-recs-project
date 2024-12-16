@@ -8,43 +8,21 @@ import HomePage from './components/HomePage/HomePage';
 
 
 const App = () => {
-  const API_BASE_URL = 'http://3.90.140.106:3001/movies';
-  const [navBarState, setNavBarState] = useState('Home');
-  const [movies, setMovies] = useState([]);
+const API_BASE_URL = 'http://3.90.140.106:3001/movies';
+const [navBarState, setNavBarState] = useState('Home');
+const [movies, setMovies] = useState([]);
 
-  const handleNavBar = (theChosenPage) => {
-    setNavBarState(theChosenPage);
-  };
+const handleNavBar = (theChosenPage) => {
+  setNavBarState(theChosenPage);
+};
 
-
-  // Refactored fetchMovies to be a standalone function
-  // const fetchMovies = async () => {
-  //   try {
-  //     const response = await fetch(API_BASE_URL);
-  //     const data = await response.json();
-  //     setMovies(data);
-  //     console.log(data);
-  //   } catch (error) {
-  //     console.error('Error fetching movies:', error);
-  //   }
-    
 
 const fetchDataForMovies = async () => { 
   const data = await movieService.getMoviesFromExpress()
   setMovies(data)
 }
-
-
-// useEffect(() => {
-//   fetchMovies();
-// }, []);
-
-useEffect(() => {
-  fetchDataForMovies()
-}
-, []);
-
-
+  
+  
 const deleteFromWatchList = async (movieId) => {
   try {
     const response = await fetch(API_BASE_URL + '/' + movieId, {
@@ -63,34 +41,62 @@ const deleteFromWatchList = async (movieId) => {
 
 // console.log(deleteFromWatchList)
 
-// const handleCheckboxWatched = async (movieId, watchedStatus) => {
-//   try {
-//     const response = await fetch(API_BASE_URL + '/' + movieId, {
-//       method: 'put',
-//       body: {movieId} ? 'false' : 'true'
-//     });
-//   }
-// }
-
-    
-const renderPage = () => {
-    switch (navBarState) {
-      case 'Search':
-        return <Search />;
-      case 'Watchlist':
-        return <Watchlist movies={movies} deleteFromWatchList={deleteFromWatchList}/>;
-      default:
-        return <HomePage />;
+const handleCheckboxWatched = async (movieId, watchedStatus) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}/${movieId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type' : 'application/json'
+      },
+      body: JSON.stringify({
+        watched: watchedStatus
+      })
+    })
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
     }
-  };
 
+    fetchDataForMovies();
+    await response.json();
+    } catch (error) {
+      console.error('Error updating movie watched status: ', error)
+    }
+}
 
-  return (
-    <>
-      <NavBar handleNavBar={handleNavBar} />
-      {renderPage()}
-    </>
-  );
+const renderPage = () => {
+switch (navBarState) {
+  case 'Search':
+return <Search />;
+case 'Watchlist':
+  return <Watchlist movies={movies} deleteFromWatchList={deleteFromWatchList} handleCheckboxWatched={handleCheckboxWatched}/>;
+default:
+    return <HomePage />;
+  }
+};
+ 
+useEffect(() => {
+  fetchDataForMovies()
+}
+, []);
+ 
+return (
+  <>
+    <NavBar handleNavBar={handleNavBar} />
+    {renderPage()}
+  </>
+);
 }
 
 export default App;
+
+
+      // Refactored fetchMovies to be a standalone function
+      // const fetchMovies = async () => {
+      //   try {
+      //     const response = await fetch(API_BASE_URL);
+      //     const data = await response.json();
+      //     setMovies(data);
+      //     console.log(data);
+      //   } catch (error) {
+      //     console.error('Error fetching movies:', error);
+      //   }
