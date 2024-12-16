@@ -18,21 +18,31 @@ const App = () => {
 
 
   // Refactored fetchMovies to be a standalone function
-  const fetchMovies = async () => {
-    try {
-      const response = await fetch(API_BASE_URL);
-      const data = await response.json();
-      setMovies(data);
-      console.log(data);
-    } catch (error) {
-      console.error('Error fetching movies:', error);
-    }
+  // const fetchMovies = async () => {
+  //   try {
+  //     const response = await fetch(API_BASE_URL);
+  //     const data = await response.json();
+  //     setMovies(data);
+  //     console.log(data);
+  //   } catch (error) {
+  //     console.error('Error fetching movies:', error);
+  //   }
     
-  
 
-  useEffect(() => {
-    fetchMovies();
-  }, []);
+const fetchDataForMovies = async () => { 
+  const data = await movieService.getMoviesFromExpress()
+  setMovies(data)
+}
+
+
+// useEffect(() => {
+//   fetchMovies();
+// }, []);
+
+useEffect(() => {
+  fetchDataForMovies()
+}
+, []);
 
 
 const deleteFromWatchList = async (movieId) => {
@@ -44,7 +54,7 @@ const deleteFromWatchList = async (movieId) => {
       throw new Error(`HTTP error! status: ${response.status}`) // <3 - Checks for HTTP response status before attempting to parse it as JSON.
     }
     await response.json(); 
-    fetchMovies()
+    fetchDataForMovies()
   } catch (error) {
     console.error('deleteFromWatchList returning error: ', error) //Console 'logs' or 'records' information
     return {error: error.message} //An actionable step due to an error to control the flow of program / resolve errors or other condiitons that affect program execution.
@@ -64,7 +74,7 @@ const deleteFromWatchList = async (movieId) => {
 
     
 const renderPage = () => {
-    switch (NavBarState) {
+    switch (navBarState) {
       case 'Search':
         return <Search />;
       case 'Watchlist':
@@ -74,14 +84,6 @@ const renderPage = () => {
     }
   };
 
-
-    const fetchDataForMovies = async () => { 
-      const data = await movieService.getMoviesFromExpress()
-      setMovies(data)
-    }
-    fetchDataForMovies()
-  })
-  , [];
 
   return (
     <>
