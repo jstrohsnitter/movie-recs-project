@@ -46,19 +46,10 @@ useEffect(() => {
 
 
 const deleteFromWatchList = async (movieId) => {
-  try {
-    const response = await fetch(API_BASE_URL + '/' + movieId, {
-      method: 'delete'
-    });
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`) // <3 - Checks for HTTP response status before attempting to parse it as JSON.
-    }
-    await response.json(); 
-    fetchDataForMovies()
-  } catch (error) {
-    console.error('deleteFromWatchList returning error: ', error) //Console 'logs' or 'records' information
-    return {error: error.message} //An actionable step due to an error to control the flow of program / resolve errors or other condiitons that affect program execution.
-  }
+  await movieService.deleteMoviesFromExpress(movieId)
+  
+  fetchDataForMovies()
+
 }
 
 // console.log(deleteFromWatchList)

@@ -31,6 +31,22 @@ export const getMoviesFromExpress = async () => {
   }
 };
 
+export const deleteMoviesFromExpress = async (movieId) => {
+  try {
+    const response = await fetch(expressAPI + '/' + movieId, {
+      method: 'delete'
+    });
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`) // <3 - Checks for HTTP response status before attempting to parse it as JSON.
+    }
+    await response.json(); 
+    
+  } catch (error) {
+    console.error('deleteFromWatchList returning error: ', error) //Console 'logs' or 'records' information
+    return {error: error.message} //An actionable step due to an error to control the flow of program / resolve errors or other condiitons that affect program execution.
+  }
+}
+
 
 
 
