@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
-import HomeSearch from '/src/components/HomeSearch.jsx';
+import Search from '/src/components/Search/Search.jsx';
 import Watchlist from './components/Watchlist/Watchlist';
 import NavBar from './components/NavBar/NavBar';
+import * as movieService from './services/movieService'
+import HomePage from './components/HomePage/HomePage';
+
 
 const App = () => {
   const API_BASE_URL = 'http://3.90.140.106:3001/movies';
@@ -12,6 +15,7 @@ const App = () => {
   const handleNavBar = (theChosenPage) => {
     setNavBarState(theChosenPage);
   };
+
 
   // Refactored fetchMovies to be a standalone function
   const fetchMovies = async () => {
@@ -23,7 +27,8 @@ const App = () => {
     } catch (error) {
       console.error('Error fetching movies:', error);
     }
-  };
+    
+  
 
   useEffect(() => {
     fetchMovies();
@@ -57,25 +62,33 @@ const deleteFromWatchList = async (movieId) => {
 //   }
 // }
 
-
-
+    
 const renderPage = () => {
-  switch (navBarState) {
-    case 'Home':
-      return <HomeSearch />;
-    case 'Watchlist':
-      return <Watchlist movies={movies} deleteFromWatchList={deleteFromWatchList}/>;
-    default:
-      return <HomeSearch />;
-  }
-};
+    switch (NavBarState) {
+      case 'Search':
+        return <Search />;
+      case 'Watchlist':
+        return <Watchlist movies={movies} deleteFromWatchList={deleteFromWatchList}/>;
+      default:
+        return <HomePage />;
+    }
+  };
 
-return (
-  <>
-    <NavBar handleNavBar={handleNavBar} />
-    {renderPage()}
-  </>
-);
-};
+
+    const fetchDataForMovies = async () => { 
+      const data = await movieService.getMoviesFromExpress()
+      setMovies(data)
+    }
+    fetchDataForMovies()
+  })
+  , [];
+
+  return (
+    <>
+      <NavBar handleNavBar={handleNavBar} />
+      {renderPage()}
+    </>
+  );
+}
 
 export default App;

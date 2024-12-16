@@ -1,10 +1,10 @@
-import MovieCard from "./MovieCard/MovieCard"
+import MovieCard from "../MovieCard/MovieCard"
 import axios from 'axios'
 
 
 
 
-const HomeSearchList = (props) => {
+const SearchList = (props) => {
 
     const movie = props.foundTitle
 
@@ -12,16 +12,16 @@ const HomeSearchList = (props) => {
     const handleAdd = () => {
         //event.preventDefault()
             let data = JSON.stringify({
-            "title": `${movie.Title}`,
-            "plot": `${movie.Plot}`,
-            "runtime": `${movie.Runtime}`,
-            "rated": `${movie.Rated}`,
-            "released": `${movie.Released}`,
-            "genre": `${movie.Genre}`,
-            "poster": `${movie.Poster}`,
-            "director": `${movie.Director}`,
-            "actors": `${movie.Actors}`,
-            "awards": `${movie.Awards}`,
+            "Title": `${movie.Title}`,
+            "Plot": `${movie.Plot}`,
+            "Runtime": `${movie.Runtime}`,
+            "Rated": `${movie.Rated}`,
+            "Released": `${movie.Released}`,
+            "Genre": `${movie.Genre}`,
+            "Poster": `${movie.Poster}`,
+            "Director": `${movie.Director}`,
+            "Actors": `${movie.Actors}`,
+            "Awards": `${movie.Awards}`,
             "watched": "false",
             });
 
@@ -57,4 +57,4 @@ const HomeSearchList = (props) => {
     )
 }
 
-export default HomeSearchList
+export default SearchList

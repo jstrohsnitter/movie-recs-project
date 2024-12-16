@@ -1,9 +1,11 @@
 import React from "react";
 import MovieCard from "../MovieCard/MovieCard";
 
+
 const Watchlist = ({ movies, deleteFromWatchList }) => {
   console.log("Watchlist.jsx: " + deleteFromWatchList)
-  return ( 
+  
+    return ( 
     <>
       <h1>Watchlist</h1>
       <ul>

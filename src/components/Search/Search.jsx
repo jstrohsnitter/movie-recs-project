@@ -1,10 +1,10 @@
 import { useState } from 'react'
-import HomeSearchList from './HomeSearchList'
+import SearchList from '/src/components/Search/SearchList.jsx'
 
 // const dotenv = require("dotenv")
 // dotenv.config()
 
-const HomeSearch = () => {
+const Search = () => {
     //2.) add state to our Home. create a variable named title initialized by the hook useState. NOTE THIS WILL ACTUALLY BE AN IMDBID
     const [ searchTitle, setSearchTitle] = useState('')
     //9.) **NOW NOT IN USE add variable to handle the response data and display. i am hard coding this into the component for now just to get and idea of how to access the values, then i will map onto a component card to display
@@ -37,13 +37,14 @@ const HomeSearch = () => {
     //12.) **NOW NOT IN USE added ternary statement to conditionally render the movie cards
     //13.) importing HomeSearchList component and passing found title to render as a card
     <>
-    <h1>Home Page</h1>
+    <h1>Search</h1>
     <form onSubmit={handleSubmit}>
         Please enter a imdbID of a movie you would like to add to your Watchlist: <br/>
+        <br/>
         <input type="text" onChange={handleChange}/>
         <input type="submit" value="Get my moive"/>
     </form>
-    <HomeSearchList foundTitle={foundTitle}/> 
+    <SearchList foundTitle={foundTitle}/> 
 
     {/* <form onSubmit={handleSubmit}>
         Please enter a movie title you would like to add to your Watchlist: <br/>
@@ -57,7 +58,7 @@ const HomeSearch = () => {
 
 }
 
-export default HomeSearch
+export default Search
 
 
 //========================USE LATER/TRASH PILE====================================================
