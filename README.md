@@ -30,7 +30,6 @@ Functionality --
 
 
 
-
 React Skeleton
 1. Home Page Component
 2. Search Bar Component
