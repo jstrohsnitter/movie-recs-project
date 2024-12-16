@@ -45,6 +45,7 @@ const deleteFromWatchList = async (movieId) => {
     return {error: error.message} //An actionable step due to an error to control the flow of program / resolve errors or other condiitons that affect program execution.
   }
 }
+
 // console.log(deleteFromWatchList)
 
 // const handleCheckboxWatched = async (movieId, watchedStatus) => {
