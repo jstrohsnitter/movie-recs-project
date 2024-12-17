@@ -28,7 +28,6 @@ const Search = () => {
         let JSONdata = await response.json(); //7.) return the response as a javascript object
         console.log(JSONdata)
         setFoundTitle(JSONdata)
-
     }
 
     return (

@@ -13,7 +13,6 @@ const Watchlist = ({ movies, deleteFromWatchList, handleCheckboxWatched}) => {
         {movies.map((movie, index) => ( // Iterate over the movies array
           <li key={index}> {/* Provide a unique key for each list item */}
             <MovieCard movie={movie} deleteFromWatchList={deleteFromWatchList} handleCheckboxWatched={handleCheckboxWatched} /> {/* Pass each movie object to the MovieCard component */}
-            {/* <button className="delete-button" onClick={() => props.deleteFromWatchList(props.movie._id)}>Delete</button> */}
           </li>
         ))}
       </ul>

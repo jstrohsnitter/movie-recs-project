@@ -2,8 +2,6 @@ import MovieCard from "../MovieCard/MovieCard"
 import axios from 'axios'
 
 
-
-
 const SearchList = (props) => {
 
     const movie = props.foundTitle
@@ -43,7 +41,6 @@ const SearchList = (props) => {
             console.log(error);
             });
     }
-
 
     return (
         <>
