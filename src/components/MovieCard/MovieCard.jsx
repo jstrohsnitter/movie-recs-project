@@ -11,12 +11,11 @@ const MovieCard = (props) => {
       <div className="card-content">
         <h2>{props.movie.Title}</h2>
           <ul className="movieInfo">
-            <li>{props.movie.Actors}</li>
-            <li>{props.movie.Plot}</li>
-            <li>{props.movie.Year}</li>
-            <li>{props.movie.Genre}</li>
-            <li>{props.movie.Runtime}</li>
-            <li>{props.movie._id}</li>
+            <li>Actors: {props.movie.Actors}</li>
+            <li>Plot: {props.movie.Plot}</li>
+            <li>Year: {props.movie.Year}</li>
+            <li>Genre: {props.movie.Genre}</li>
+            <li>Runtime: {props.movie.Runtime}</li>
             <li>
             <input className="input-watched-checkbox" 
             type="checkbox" 
