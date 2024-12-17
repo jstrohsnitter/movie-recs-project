@@ -51,7 +51,7 @@ const SearchList = (props) => {
         {movie === '' ? <br></br> :
         <>
         <MovieCard movie={movie}/>
-        <button onClick={handleAdd}>Add To Watchlist</button>
+        <button onClick={handleAdd} id="addToWatchlistButton">Add To Watchlist</button>
         </>
     }
         </>
