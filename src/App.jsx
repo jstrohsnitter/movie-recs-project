@@ -30,7 +30,6 @@ const deleteFromWatchList = async (movieId) => {
   fetchDataForMovies()
 
 }
-
 // console.log(deleteFromWatchList)
 
 const handleCheckboxWatched = async (movieId, watchedStatus) => {
@@ -70,7 +69,7 @@ const handleCheckboxWatched = async (movieId, watchedStatus) => {
 const renderPage = () => {
 switch (navBarState) {
   case 'Search':
-return <Search fetchDataForMovies={fetchDataForMovies}/>;
+return <Search fetchDataForMovies={fetchDataForMovies} />;
 case 'Watchlist':
   return <Watchlist movies={movies} deleteFromWatchList={deleteFromWatchList} handleCheckboxWatched={handleCheckboxWatched}/>;
 default:
