@@ -38,12 +38,15 @@ const SearchList = (props) => {
             axios.request(config)
             .then((response) => {
             console.log(JSON.stringify(response.data));
+            props.fetchDataForMovies(); //needs to be here to it is difinitively called after the post is finished
             })
             .catch((error) => {
             console.log(error);
             });
+        //console.log("Calling fetch data for movies")
+        //props.fetchDataForMovies();
+        //console.log("MOVIES FETCHED")
     }
-
 
     return (
         <>

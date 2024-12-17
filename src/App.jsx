@@ -21,6 +21,7 @@ const fetchDataForMovies = async () => {
   const data = await movieService.getMoviesFromExpress()
   setMovies(data)
 }
+
   
   
 const deleteFromWatchList = async (movieId) => {
@@ -54,10 +55,22 @@ const handleCheckboxWatched = async (movieId, watchedStatus) => {
     }
 }
 
+// const handleSubmit = async (event) => {
+//   event.preventDefault() //5.) prevents us from taking us to a different page
+//   let response = await fetch( //6.) use fetch to make an AJAX request to the outside API. 
+//       `https://www.omdbapi.com/?apikey=${API}&i=${searchTitle}`
+//   )
+//   let JSONdata = await response.json(); //7.) return the response as a javascript object
+//   console.log(JSONdata);
+//   setFoundTitle(JSONdata);
+//   fetchDataForMovies();
+//   //console.log(props.fetchDataForMovies)
+// }
+
 const renderPage = () => {
 switch (navBarState) {
   case 'Search':
-return <Search />;
+return <Search fetchDataForMovies={fetchDataForMovies}/>;
 case 'Watchlist':
   return <Watchlist movies={movies} deleteFromWatchList={deleteFromWatchList} handleCheckboxWatched={handleCheckboxWatched}/>;
 default:

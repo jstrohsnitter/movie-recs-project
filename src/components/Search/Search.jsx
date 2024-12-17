@@ -1,10 +1,10 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import SearchList from '/src/components/Search/SearchList.jsx'
 
 // const dotenv = require("dotenv")
 // dotenv.config()
 
-const Search = () => {
+const Search = ({fetchDataForMovies}) => {
     //2.) add state to our Home. create a variable named title initialized by the hook useState. NOTE THIS WILL ACTUALLY BE AN IMDBID
     const [ searchTitle, setSearchTitle] = useState('')
     //9.) **NOW NOT IN USE add variable to handle the response data and display. i am hard coding this into the component for now just to get and idea of how to access the values, then i will map onto a component card to display
@@ -15,10 +15,10 @@ const Search = () => {
         setSearchTitle(event.target.value)
     }
 
-
+//const fetchDataForMovies = props.fetchDataForMovies//add to pass
     //4.) Get an api key and write a function for submitting that will request to the API
     //const API = OMDb_API ** need to figure out how to incorporate requiring dotenv so i can access this through .env instead of exposing key
-    
+   //props.fetchDataForMovies();
 
     const handleSubmit = async (event) => {
         event.preventDefault() //5.) prevents us from taking us to a different page
@@ -26,11 +26,10 @@ const Search = () => {
             `https://www.omdbapi.com/?apikey=${API}&i=${searchTitle}`
         )
         let JSONdata = await response.json(); //7.) return the response as a javascript object
-        console.log(JSONdata)
-        setFoundTitle(JSONdata)
-
+        console.log(JSONdata);
+        setFoundTitle(JSONdata);
     }
-
+//props.fetchDataForMovies()
     return (
     // 1.) create a form where the user can input data. We will add the movie title to search by title
     // 8.) add onSubmit={handleSubmit} on the form to link to the handleSubmit fn
@@ -44,7 +43,7 @@ const Search = () => {
         <input type="text" onChange={handleChange}/>
         <input type="submit" value="Get my moive"/>
     </form>
-    <SearchList foundTitle={foundTitle}/> 
+    <SearchList fetchDataForMovies={fetchDataForMovies} foundTitle={foundTitle}/> 
 
     {/* <form onSubmit={handleSubmit}>
         Please enter a movie title you would like to add to your Watchlist: <br/>
