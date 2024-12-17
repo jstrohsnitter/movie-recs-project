@@ -17,10 +17,10 @@ const NavBar = ({ handleNavBar }) => { // Accept handleNavBar as a prop
   };
 
   return (
-    <nav>
-      <ul id="navbar">
+    <nav className="navbar">
+      <ul className="navbar-button-container">
         {navBarOptions.map((navBarOption, index) => (
-          <button key={index} onClick={handleChoice} value={navBarOption.page}>
+          <button className="navbar-buttons" key={index} onClick={handleChoice} value={navBarOption.page}>
             {navBarOption.content}
           </button>
         ))}

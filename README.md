@@ -106,3 +106,9 @@ https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers
 
 handling fetch PUT requests:
 https://jasonwatmore.com/post/2020/11/02/react-fetch-http-put-request-examples
+
+button styling:
+https://www.freecodecamp.org/news/css-button-style-hover-color-and-background/
+
+CSS color picker:
+https://www.figma.com/colors/sky-blue/

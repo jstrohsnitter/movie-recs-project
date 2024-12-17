@@ -83,10 +83,10 @@ useEffect(() => {
 , []);
  
 return (
-  <>
+  <div className="main-container">
     <NavBar handleNavBar={handleNavBar} />
     {renderPage()}
-  </>
+  </div>
 );
 }
 
