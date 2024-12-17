@@ -8,7 +8,7 @@ const HomePage = () => {
         <ul>
             <li>Go to 'Search' and enter the imdbID of the moive you would like to add</li>
             <li>Once you have found your title, click 'Add To Watchlist' to add it to your Watchlist</li>
-            <li>When you get around to watching it, click the 'watched' box to mark it was watched</li>
+            <li>When you get around to watching it, click the 'unseen' box to mark it was watched</li>
         </ul>
         <h2>To find an imdbID:</h2>
         <ul>
