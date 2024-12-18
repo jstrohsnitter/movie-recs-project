@@ -112,3 +112,6 @@ https://www.freecodecamp.org/news/css-button-style-hover-color-and-background/
 
 CSS color picker:
 https://www.figma.com/colors/sky-blue/
+
+border animations using trasnition:
+https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_transitions/Using_CSS_transitions

@@ -5,7 +5,7 @@ const MovieCard = (props) => {
   // console.log("MovieCard.jsx: " + props.deleteFromWatchList)
   // console.log("MovieCard.jsx: " + props.handleCheckboxWatched)
   return (
-      <main className="card">
+      <main className={`card ${props.movie.watched ? 'watched' : 'not-watched'}`}>
         <img src={props.movie.Poster} alt="movie poster" />
       {/* {console.log(props.movie)} */}
       <div className="card-content">
