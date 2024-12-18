@@ -47,11 +47,11 @@ main {
   .input-watched-checkbox {
     z-index: 10;
     /* position:relative; */
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
     cursor: pointer;
     display: none;
-    position: absolute;
-    top: 37.4em;
-    left: 1em;
     background-color: green;
     color: green;
     font: inherit;
@@ -74,8 +74,8 @@ main {
   }
   #checkboxLabel {
     position: absolute;
-    top: 37.2em;
-    left: 2.5em;
+    bottom: 33px;
+    left: 58px;
     display: none;
   }
   &:hover h2 {
@@ -108,7 +108,11 @@ main {
   }
 }
 
-
+.watched-and-delete-functionality  {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
 
 
 .material-symbols-outlined {
