@@ -87,16 +87,16 @@ main {
     transition: opacity .3s ease-in;
     opacity: 0.1;
   }
-  
   &:hover li {
     font-weight: 900;
     list-style-type: none;
     padding: 5px;
     opacity: 1;
   }
-
   &:hover .delete-button{
     display: block;
+    background-color: red;
+
   }
   &:hover .input-watched-checkbox {
     display: block;
@@ -108,17 +108,9 @@ main {
   }
 }
 
-.watched-and-delete-functionality  {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
-
-
 .material-symbols-outlined {
   vertical-align: middle;
 }
-
 
 .watched {
   border: 15px solid #647f24;
