@@ -1,6 +1,6 @@
 import MovieCard from "../MovieCard/MovieCard"
 import axios from 'axios'
-
+import "./Search.css"
 
 const SearchList = (props) => {
 
@@ -37,6 +37,7 @@ const SearchList = (props) => {
             .then((response) => {
             console.log(JSON.stringify(response.data));
             props.fetchDataForMovies(); //needs to be here to it is difinitively called after the post is finished
+
             })
             .catch((error) => {
             console.log(error);
@@ -46,16 +47,28 @@ const SearchList = (props) => {
         //console.log("MOVIES FETCHED")
     }
 
+    const changeButtonColorOnClick = (event) => {
+        event.target.className = 'submitted'
+        event.target.innerHTML = 'Added to Watchlist!'
+    }
+
     return (
         <>
-        {movie === '' ? <br></br> :
-        <>
-        <MovieCard movie={movie}/>
-        <button onClick={handleAdd}>Add To Watchlist</button>
+            {movie === '' ? <br /> :
+            <>
+                <MovieCard movie={movie} />
+                <button 
+                    onClick={() => {
+                        handleAdd();
+                        changeButtonColorOnClick(event);
+                    }}
+                    id="addToWatchlistButton">
+                    Add To Watchlist
+                </button>
+            </>
+            }
         </>
-    }
-        </>
-    )
+    );
 }
 
 export default SearchList
