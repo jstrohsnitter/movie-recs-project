@@ -1,3 +1,5 @@
+Justin Strohsnitter, Miles Tarricone, Abdullah Durrani 
+
 Movie recommendation (movie api)
 
 User story:
