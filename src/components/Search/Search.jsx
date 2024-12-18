@@ -1,5 +1,13 @@
 import { useState, useEffect } from 'react'
 import SearchList from '/src/components/Search/SearchList.jsx'
+import Navbar from 'react-bootstrap/Navbar';
+import Form from 'react-bootstrap/Form';
+import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import './Search.css'
+
 
 // const dotenv = require("dotenv")
 // dotenv.config()
@@ -36,14 +44,30 @@ const Search = ({fetchDataForMovies}) => {
     //12.) **NOW NOT IN USE added ternary statement to conditionally render the movie cards
     //13.) importing HomeSearchList component and passing found title to render as a card
     <>
+    <div id="searchDiv">
     <h1>Search</h1>
-    <form onSubmit={handleSubmit}>
-        Please enter a imdbID of a movie you would like to add to your Watchlist: <br/>
+    <Navbar id="searchFormBar" className="justify-content-between">
+    <Form inline onSubmit={handleSubmit} id="searchForm">
+        Please enter an imdbID of a movie you would like to add to your Watchlist: <br/>
         <br/>
-        <input type="text" onChange={handleChange}/>
-        <input type="submit" value="Get my moive"/>
-    </form>
+        <Row>
+        {/* <Form.Control
+              type="text"
+              placeholder="Search"
+              className=" mr-sm-2"
+            /> */}
+          {/* <Col xs="auto"> */}
+        {/* <input type="text" onChange={handleChange}/> */}
+        <Form.Control type="text" placeholder="imdbID" id="searchFormControl" onChange={handleChange}/>
+        {/* </Col> */}
+        {/* <Col xs="auto"> */}
+        <Button id= "searchButton" type="submit">Get my movie</Button>
+        {/* </Col> */}
+        </Row>
+    </Form>
+    </Navbar>
     <SearchList fetchDataForMovies={fetchDataForMovies} foundTitle={foundTitle}/> 
+    </div>
 
     {/* <form onSubmit={handleSubmit}>
         Please enter a movie title you would like to add to your Watchlist: <br/>
