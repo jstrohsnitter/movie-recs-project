@@ -22,6 +22,7 @@ main {
   font-family: "Oswald", sans-serif;
   font-weight: 5;
   font-style: normal;
+  
  
   img {
     /*testing button functionality */
@@ -43,12 +44,45 @@ main {
     display: none;
   }
   
+  .input-watched-checkbox {
+    z-index: 10;
+    /* position:relative; */
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 37.4em;
+    left: 1em;
+    background-color: green;
+    color: green;
+    font: inherit;
+    color: currentColor;
+    width: 1.15em;
+    height: 1.15em;
+    border: 0.15em solid currentColor;
+    border-radius: 0.15em;
+    transform: translateY(-0.075em);
+  }
+  
+  .delete-button {
+    z-index: 10;
+    position:relative;
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    top: 38em;
+    left: 23em;
+  }
+  #checkboxLabel {
+    position: absolute;
+    top: 37.2em;
+    left: 2.5em;
+    display: none;
+  }
   &:hover h2 {
     inset: auto 50px 520px 30px;
     transition: inset .3s ease-out;
     display: block;
   }
-  
   &:hover img {
     transition: opacity .3s ease-in;
     opacity: 0.1;
@@ -60,19 +94,21 @@ main {
     padding: 5px;
     opacity: 1;
   }
+
+  &:hover .delete-button{
+    display: block;
+  }
+  &:hover .input-watched-checkbox {
+    display: block;
+    /* color: green; */
+    /* background-color: green; */
+  }
+  &:hover #checkboxLabel {
+    display: block;
+  }
 }
 
-.delete-button {
-  z-index: 10;
-  position:relative;
-  cursor: pointer;
-}
 
-.input-watched-checkbox {
-  z-index: 10;
-  position:relative;
-  cursor: pointer;
-}
 
 
 .material-symbols-outlined {
